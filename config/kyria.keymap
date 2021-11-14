@@ -7,24 +7,62 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#define BASE  0
+#define NAV   1
+#define NUM   2
+#define FUN   3
+
+#define NEXT_WORD LC(LEFT)
+#define PREV_WORD LC(RIGHT)
+#define BEG_DOC   LC(HOME)
+#define END_DOC   LC(END)
+
 / {
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+// -------------------------------------------------------------                                            -------------------------------------------------------------
+// |    ESC  |    Q    |    W    |    E    |    R    |    T    |                                            |    Y    |    U    |    I    |    O    |    P    |    \    |
+// |    TAB  |    A    |    S    |    D    |    F    |    G    |--------------------    --------------------|    H    |    J    |    K    |    L    |    ;    |    '    |
+// |    SHIFT|    Z    |    X    |    C    |    V    |    B    |    TAB  |    ESC  |    |    BSCP |   DEL   |    N    |    M    |    ,    |    .    |    /    |   CTRL  |
+// ------------------------------|   CTRL  |   GUI   |   ALT   |   SPACE |    num  |    |    nav  |   RET   |   ALT   |   CTRL  |  rotary |------------------------------
+//                               ---------------------------------------------------    ---------------------------------------------------
 			bindings = <
-	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
-	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-	                 &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+	&kp ESC   &kp Q     &kp W     &kp E     &kp R     &kp T                                                  &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
+	&kp TAB   &kp A     &kp S     &kp D     &kp F     &kp G                                                  &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+	&kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp TAB   &kp ESC        &kp BSPC  &kp DEL   &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
+	                	          &kp RCTRL &kp LGUI  &kp RALT  &kp SPACE &mo NUM        &mo NAV   &kp RET   &kp RALT  &kp RCTRL &kp C_MUTE
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+
+		nav_layer {
+			bindings = <
+	&none     &none     &none     &none     &none     &none                                                  &none     &kp PG_UP &kp UP    &kp PG_DN &none     &none
+	&none     &none     &none     &none     &none     &none                                                  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &none
+	&none     &none     &none     &none     &none     &none     &trans   &trans          &trans    &trans    &kp BEG_DOC &kp PREV_WORD &none &kp NEXT_WORD &kp END_DOC &none
+							      &trans    &trans    &trans    &trans   &mo SYM         &trans    &trans    &trans    &trans    &trans
+			>;
+		};
+
+		num_layer {
+			bindings = <
+	&none     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &kp RBKT
+	&none     &kp AMPS  &kp CARET &kp LPAR  &kp RPAR  &kp PIPE                                               &kp PLUS  &kp N4    &kp N5    &kp N6    &kp SEMI  &kp LBKT
+	&none     &kp TILDE &kp EXCL  &kp LT    &kp GT    &kp UNDER &trans   &trans          &trans    &trans    &kp MINUS &kp N1    &kp N2    &kp N3    &kp FSLH  &kp FSLH
+							      &trans    &trans    &trans    &trans   &trans          &mo SYM   &trans    &kp N0    &kp DOT   &trans
+			>;
+		};
+
+		fun_layer {
+			bindings = <
+	&none     &kp F21   &kp F22   &kp F23   &kp F24   &kp SLCK                                               &kp C_VOL_UP &kp F7 &kp F8    &kp F9    &kp F12   &none
+	&none     &kp F17   &kp F18   &kp F19   &kp F20   &kp PSCRN                                              &kp C_VOL_DN &kp F4 &kp F5    &kp F6    &kp F11   &none
+	&none     &kp F13   &kp F14   &kp F15   &kp F16   &kp INS   &trans   &trans          &trans    &trans    &kp C_MUTE &kp F1   &kp F2    &kp F3    &kp F10   &none
+							      &trans    &trans    &trans    &trans   &trans          &trans    &trans    &trans    &trans    &trans
+			>;
 		};
 	};
 };
