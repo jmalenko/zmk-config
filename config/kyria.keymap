@@ -31,7 +31,7 @@
 			bindings = <
 	&kp ESC   &kp Q     &kp W     &kp E     &kp R     &kp T                                                  &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
 	&kp TAB   &kp A     &kp S     &kp D     &kp F     &kp G                                                  &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
-	&kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &kp TAB   &kp ESC        &kp BSPC  &kp DEL   &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
+	&kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &mt SHIFT TAB &kp ESC    &kp BSPC  &mt SHIFT DEL &kp N &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
 	                	          &kp RCTRL &kp LGUI  &kp RALT  &lt NUM SPACE &tog NUM   &tog NAV  &lt NAV RET &kp RALT &kp RCTRL &kp C_MUTE
 			>;
 
@@ -43,7 +43,7 @@
 	&none     &none     &none     &none     &none     &none                                                  &none     &kp PG_UP &kp UP    &kp PG_DN &none     &none
 	&none     &none     &none     &none     &none     &none                                                  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &none
 	&none     &none     &none     &none     &none     &none     &trans   &trans          &trans    &trans    &kp BEG_DOC &kp PREV_WORD &none &kp NEXT_WORD &kp END_DOC &none
-							      &trans    &trans    &trans    &lt FUN SPACE &kp RET    &trans    &trans    &trans    &trans    &trans
+							      &trans    &trans    &trans    &lt FUN SPACE &kp RET    &kp SPACE &trans    &trans    &trans    &trans
 			>;
 		};
 
@@ -52,7 +52,7 @@
 	&none     &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &kp RBKT
 	&none     &kp AMPS  &kp CARET &kp LPAR  &kp RPAR  &kp PIPE                                               &kp PLUS  &kp N4    &kp N5    &kp N6    &kp SEMI  &kp LBKT
 	&none     &kp TILDE &kp EXCL  &kp LT    &kp GT    &kp UNDER &trans   &trans          &trans    &trans    &kp MINUS &kp N1    &kp N2    &kp N3    &kp FSLH  &kp FSLH
-							      &trans    &trans    &trans    &trans   &trans          &kp SPACE &lt FUN RET &kp N0  &kp DOT   &trans
+							      &trans    &trans    &trans    &trans   &kp RET         &kp SPACE &lt FUN RET &kp N0  &kp DOT   &trans
 			>;
 		};
 
