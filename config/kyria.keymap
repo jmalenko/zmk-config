@@ -12,8 +12,8 @@
 #define NUM   2
 #define FUN   3
 
-#define NEXT_WORD LC(LEFT)
-#define PREV_WORD LC(RIGHT)
+#define PREV_WORD LC(LEFT)
+#define NEXT_WORD LC(RIGHT)
 #define BEG_DOC   LC(HOME)
 #define END_DOC   LC(END)
 
