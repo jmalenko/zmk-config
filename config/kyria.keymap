@@ -145,7 +145,7 @@
 
 		num_layer {
 			bindings = <
-    &kp RBKT  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &none
+    &kp RBKT  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &kp COMMA
     &kp LBKT  &kp AMPS  &kp CARET &kp LPAR  &kp RPAR  &kp PIPE                                               &kp PLUS  &kp N4    &kp N5    &kp N6    &kp SEMI  &kp COLON
     &none     &kp TILDE &kp EXCL  &kp LT    &kp GT    &kp UNDER &trans   &trans          &trans    &trans    &kp MINUS &kp N1    &kp N2    &kp N3    &kp FSLH  &kp FSLH
                                   &trans    &trans    &trans    &trans   &kp RET         &kp SPACE &lt FUN RET &kp N0  &kp DOT   &trans
