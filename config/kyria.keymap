@@ -139,7 +139,7 @@
     &none     &none     &none     &none     &none     &none                                                  &none     &kp PG_UP &kp UP    &kp PG_DN &none     &none
     &none     &none     &none     &none     &none     &none                                                  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &none
     &none     &none     &none     &none     &none     &none     &trans   &trans          &trans    &trans    &kp BEG_DOC &kp PREV_WORD &none &kp NEXT_WORD &kp END_DOC &none
-                                  &trans    &trans    &trans    &lt FUN SPACE &kp RET    &kp SPACE &trans    &trans    &trans    &trans
+                                  &trans    &trans    &trans    &lt FUN SPACE &kp RET    &trans    &trans    &trans    &trans    &trans
 			>;
 		};
 
@@ -148,7 +148,7 @@
     &kp RBKT  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &kp COMMA
     &kp LBKT  &kp AMPS  &kp CARET &kp LPAR  &kp RPAR  &kp PIPE                                               &kp PLUS  &kp N4    &kp N5    &kp N6    &kp SEMI  &kp COLON
     &none     &kp TILDE &kp EXCL  &kp LT    &kp GT    &kp UNDER &trans   &trans          &trans    &trans    &kp MINUS &kp N1    &kp N2    &kp N3    &kp FSLH  &kp FSLH
-                                  &trans    &trans    &trans    &trans   &kp RET         &kp SPACE &lt FUN RET &kp N0  &kp DOT   &trans
+                                  &trans    &trans    &trans    &trans   &trans          &kp SPACE &lt NAV RET &kp N0  &kp DOT   &trans
 			>;
 		};
 
