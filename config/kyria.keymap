@@ -114,6 +114,19 @@
 };
 
 / {
+    behaviors {
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_tog";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
+};
+
+/ {
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -128,7 +141,7 @@
     &kp ESC   &kp Q     &kp W     &kp E     &kp R     &kp T                                                  &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
     &kp TAB   &kp A     &kp S     &kp D     &kp F     &kp G                                                  &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
     &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B     &mt LSHFT TAB &kp ESC    &kp BSPC  &mt RSHFT DEL &kp N &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
-                                  &kp LGUI  &kp LCTRL &kp LALT  &lt NUM SPACE &tog NUM   &tog NAV  &lt NAV RET &kp RALT &kp RCTRL &kp C_MUTE
+                                  &kp LGUI  &kp LCTRL &kp LALT  &lt NUM SPACE &mo_tog NAV NUM   &mo_tog NUM NAV &lt NAV RET &kp RALT &kp RCTRL &kp C_MUTE
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -136,27 +149,27 @@
 
 		nav_layer {
 			bindings = <
-    &none     &none     &none     &none     &none     &none                                                  &none     &kp PG_UP &kp UP    &kp PG_DN &none     &none
-    &none     &none     &none     &none     &none     &none                                                  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &none
-    &none     &none     &none     &none     &none     &none     &trans   &trans          &trans    &trans    &kp BEG_DOC &kp PREV_WORD &none &kp NEXT_WORD &kp END_DOC &none
-                                  &trans    &trans    &trans    &lt FUN SPACE &kp RET    &kp SPACE &trans    &trans    &trans    &trans
+    &trans    &none     &none     &none     &none     &none                                                  &none     &kp PG_UP &kp UP    &kp PG_DN &none     &none
+    &trans    &none     &none     &none     &none     &none                                                  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &none
+    &trans    &none     &none     &none     &none     &none     &trans   &trans          &trans    &trans    &kp BEG_DOC &kp PREV_WORD &none &kp NEXT_WORD &kp END_DOC &none
+                                  &trans    &trans    &trans    &lt FUN SPACE &kp RET    &trans    &trans    &trans    &trans    &trans
 			>;
 		};
 
 		num_layer {
 			bindings = <
-    &kp RBKT  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &kp COMMA
+    &kp RBKT  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                                              &kp STAR  &kp N7    &kp N8    &kp N9    &kp EQUAL &kp DOT
     &kp LBKT  &kp AMPS  &kp CARET &kp LPAR  &kp RPAR  &kp PIPE                                               &kp PLUS  &kp N4    &kp N5    &kp N6    &kp SEMI  &kp COLON
-    &none     &kp TILDE &kp EXCL  &kp LT    &kp GT    &kp UNDER &trans   &trans          &trans    &trans    &kp MINUS &kp N1    &kp N2    &kp N3    &kp FSLH  &kp FSLH
-                                  &trans    &trans    &trans    &trans   &kp RET         &kp SPACE &lt FUN RET &kp N0  &kp DOT   &trans
+    &trans    &kp TILDE &kp GRAVE &kp LT    &kp GT    &kp UNDER &trans   &trans          &trans    &trans    &kp MINUS &kp N1    &kp N2    &kp N3    &kp FSLH  &kp BSLH
+                                  &trans    &trans    &trans    &trans   &trans          &kp SPACE &lt FUN RET &kp N0  &kp COMMA &trans
 			>;
 		};
 
 		fun_layer {
 			bindings = <
-    &none     &kp F21   &kp F22   &kp F23   &kp F24   &kp SLCK                                               &kp C_VOL_UP &kp F7 &kp F8    &kp F9    &kp F12   &kp C_PREV
-    &none     &kp F17   &kp F18   &kp F19   &kp F20   &kp PSCRN                                              &kp C_VOL_DN &kp F4 &kp F5    &kp F6    &kp F11   &kp C_PLAY_PAUSE
-    &none     &kp F13   &kp F14   &kp F15   &kp F16   &kp INS   &trans   &trans          &trans    &trans    &kp C_MUTE &kp F1   &kp F2    &kp F3    &kp F10   &kp C_NEXT
+    &trans    &kp F21   &kp F22   &kp F23   &kp F24   &kp SLCK                                               &kp C_VOL_UP &kp F7 &kp F8    &kp F9    &kp F12   &kp C_PREV
+    &trans    &kp F17   &kp F18   &kp F19   &kp F20   &kp PSCRN                                              &kp C_VOL_DN &kp F4 &kp F5    &kp F6    &kp F11   &kp C_PLAY_PAUSE
+    &trans    &kp F13   &kp F14   &kp F15   &kp F16   &kp INS   &trans   &trans          &trans    &trans    &kp C_MUTE &kp F1   &kp F2    &kp F3    &kp F10   &kp C_NEXT
                                   &trans    &trans    &trans    &trans   &trans          &trans    &trans    &trans    &trans    &trans
 			>;
 		};
